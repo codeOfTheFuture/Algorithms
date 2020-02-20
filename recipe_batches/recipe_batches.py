@@ -3,7 +3,24 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  total_batch = None
+
+  for i in recipe:
+    if i not in ingredients:
+      return 0
+    else:
+      if ingredients[i] < recipe[i]:
+        total_batch = 0
+      elif ingredients[i] == recipe[i]:
+        total_batch = 1
+      else:
+        batches = ingredients[i] // recipe[i]
+        if not total_batch:
+          total_batch = batches
+        else:
+          if batches < total_batch:
+            total_batch = batches
+  return total_batch    
 
 
 if __name__ == '__main__':
