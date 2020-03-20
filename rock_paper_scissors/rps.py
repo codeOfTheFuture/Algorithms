@@ -15,7 +15,10 @@ def rock_paper_scissors(n):
         helper(arr, move + 1)
       arr.pop()
 
-  helper([], 1)
+  if n == 0:
+    return [[]]
+  else:
+    helper([], 1)
 
   return result
 print(rock_paper_scissors(5))
