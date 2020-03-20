@@ -6,18 +6,18 @@ import sys
 # a solution that is more efficient than the naive 
 # recursive solution
 def eating_cookies(n, cache=None):
+  if cache is None:
+      cache = {}
   if n < 0:
     return 
   elif n == 0:
     return 1
   elif cache and n in cache:
     return cache[n]
-  else:
-    if cache is None:
-      cache = {}
-    value = eating_cookies(n - 1) + eating_cookies(n - 2) + eating_cookies(n - 3)
-    cache[n] = value
-    return value
+  
+  value = eating_cookies(n - 1) + eating_cookies(n - 2) + eating_cookies(n - 3)
+  cache[n] = value
+  return value
 
 
 
